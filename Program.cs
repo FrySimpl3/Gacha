@@ -170,7 +170,7 @@ namespace GameToolClaudeStyle
                 // 1. Danh sách tài khoản (Tuple gọn gàng)
                 var accountList = new List<(string User, string Pass)>
                 {
-                    ("guest", "Guest999"),
+                    ("guest", "Guest99"),
                     ("member", "Mem#888")
                 };
 
