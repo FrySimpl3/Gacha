@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="Gacha.csproj" Id="ec51b5e2-d179-4234-8265-a0293ffac4d2">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+</Solution>
