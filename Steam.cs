@@ -26,14 +26,12 @@ namespace GameToolClaudeStyle
                     }
                 }
             }
-
             // Nếu không thấy trong Registry, thử tìm ở các đường dẫn mặc định
             string default64 = @"C:\Program Files (x86)\Steam\Steam.exe";
             if (File.Exists(default64)) return default64;
 
             string default32 = @"C:\Program Files\Steam\Steam.exe";
             if (File.Exists(default32)) return default32;
-
             return null;
         }
 
@@ -54,6 +52,7 @@ namespace GameToolClaudeStyle
             }
         }
 
+        public static string pathSteam = String.Empty;
         /// <summary>
         /// Đăng nhập tài khoản trực tiếp vào phần mềm Steam.exe trên máy tính
         /// </summary>
@@ -62,7 +61,7 @@ namespace GameToolClaudeStyle
             string steamPath = GetSteamPath();
             if (string.IsNullOrEmpty(steamPath))
             {
-                Console.WriteLine("Lỗi: Không tìm thấy phần mềm Steam cài đặt trên máy tính này.");
+                //Console.WriteLine("Lỗi: Không tìm thấy phần mềm Steam cài đặt trên máy tính này.");
                 return false;
             }
 
@@ -82,12 +81,12 @@ namespace GameToolClaudeStyle
                 };
 
                 Process.Start(startInfo);
-                Console.WriteLine($"Đang kích hoạt Steam.exe để đăng nhập tài khoản: {username}...");
+                //Console.WriteLine($"Đang kích hoạt Steam.exe để đăng nhập tài khoản: {username}...");
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Lỗi khi khởi chạy Steam: {ex.Message}");
+                //Console.WriteLine($"Lỗi khi khởi chạy Steam: {ex.Message}");
                 return false;
             }
         }
@@ -97,9 +96,11 @@ namespace GameToolClaudeStyle
             string steamPath = GetSteamPath();
             if (string.IsNullOrEmpty(steamPath))
             {
-                Console.WriteLine("Lỗi: Không tìm thấy phần mềm Steam cài đặt trên máy tính này.");
+                //Console.WriteLine("Lỗi: Không tìm thấy phần mềm Steam cài đặt trên máy tính này.");
                 return false;
             }
+            //Console.WriteLine(steamPath);
+            pathSteam = steamPath;
             try
             {
                 var offlineInfo = new ProcessStartInfo
@@ -110,12 +111,12 @@ namespace GameToolClaudeStyle
                 };
                 Process.Start(offlineInfo);
 
-                Console.WriteLine($"Đang kích hoạt Steam.exe để đăng nhập tài khoản: ...");
+                //Console.WriteLine($"Đang kích hoạt Steam.exe để đăng nhập tài khoản: ...");
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Lỗi khi khởi chạy Steam: {ex.Message}");
+                //Console.WriteLine($"Lỗi khi khởi chạy Steam: {ex.Message}");
                 return false;
             }
         }
@@ -129,11 +130,11 @@ namespace GameToolClaudeStyle
             try
             {
                 Process.Start($"steam://rungameid/{appId}");
-                Console.WriteLine($"Đang gửi lệnh mở Game có ID: {appId}");
+                //Console.WriteLine($"Đang gửi lệnh mở Game có ID: {appId}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Không thể mở game: {ex.Message}");
+                //Console.WriteLine($"Không thể mở game: {ex.Message}");
             }
         }
     }
